@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet"> 
+  
+  <title>Frontend Mentor | Loopstudios landing page</title>
+
+  <style>
+  *{
+    box-sizing: border-box;
+  }
+  html, body{
+    margin: 0;
+  }
+  
+  @media all and (max-width: 800px) {
+    .firstcont{
+        min-width: 100vw;
+        min-height: 100vh;
+        background-image: url("images/mobile/image-hero.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-size: cover;
+        display: grid;
+        grid-template-areas: "icong icong icong icong navg navg" "immerseg";
+
+    }
+
+    .icon{
+      grid-area: icong;
+      margin-left: 4%;
+      margin-top: -200px;
+    }
+
+ 
+    .nav{
+      grid-area: navg;
+      position: relative;
+      bottom: 38%;
+      left: 85%;
+    }
+
+    #btn{
+      padding: 15px;
+    }
+
+    .navitems{
+      visibility: hidden;
+      display: table;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0);
+    }
+    
+    .navitems:target{
+      visibility: visible;
+    }
+
+    .navcont{
+      text-align: left;
+      margin-top: 36px;
+    }
+    
+    .navcont a{
+      text-decoration: none;
+      text-transform: uppercase;
+      color: white;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 30px;
+    }
+
+    .navcont li{
+      line-height: 45px;
+    }
+
+    .navcont a:hover{
+      border-bottom: 3px groove white;
+    }
+
+    .close{
+      position: absolute;
+      top: 25px;
+      right: 20px;
+    }
+
+    
+    .immerse{
+      grid-area: immerseg;
+      border: 3px solid white;
+      width: 320px;
+      height: 220px;
+      padding-left: 20px;
+    }
+
+    .immerse p{
+      text-transform: uppercase;
+      font-family: 'Josefin Sans', sans-serif;
+      color: white;
+      text-align: left;
+      font-size: 40px;
+      width: 200px;
+      line-height: 38px;
+  
+
+    }
+
+    .seccont{
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .mobpic1{
+      min-width: 300px;
+      margin: 100px 20px 10px 20px;
+
+    }
+
+    .deskpic1{
+      display: none;
+    }
+
+    .interact{
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      justify-items: flex-start;
+      align-items: center;
+
+    }
+
+    .interbody{
+      margin-left: 20px;
+      margin-right: 20px;  
+    }
+
+    .interhead p{
+      font-family: 'Josefin Sans', sans-serif;
+      text-transform: uppercase;
+      font-size: 30px;
+      width: 375px;
+      text-align: center;
+    }
+
+    .interbody p{
+      font-family: 'Alata', sans-serif;
+      font-size: 15px;
+      width: 270px;
+      text-align: center;
+      padding: 0 30px;
+      line-height: 25px;
+    }
+
+    .thirdcontmob {
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      justify-items: flex-start;
+      align-items: center;
+      margin-top: 5vh;
+
+    }
+
+    .createhead{
+      text-transform: uppercase;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .create{
+      position: relative;
+    }
+
+    .create img{
+      max-width: 800px;
+      height: 200px;
+      margin: -40px 60px 0px 60px;
+      transform: scale(.6, .7);
+      position: relative;
+      filter: brightness(0.5);
+    }
+
+    .create p{
+      text-transform: uppercase;
+      font-family: 'Josefin Sans', sans-serif;
+      color: white;
+      font-size: 25px;
+      position: absolute;
+      bottom: 40px;
+      left: 190px;
+      width: 150px;
+    }
+
+    .see{
+      max-width: 800px;
+      margin: 50px 20px 150px 20px;
+    }
+
+    .see a{
+      text-decoration: none;
+      font-family: 'Alata', sans-serif;
+      text-transform: uppercase;
+      font-size: 25px;
+      border: 1px solid black;
+      padding: 10px 50px;
+      letter-spacing: 2px;
+      color: black;
+    }
+
+    .see a:hover{
+      background-color: black;
+      color: white;
+    }
+
+    .thirdcontlap{
+      display: none;
+    }
+
+    .footmob{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      width: 100vw;
+      background: black;
+      margin: 0;
+    }
+
+    .footlogo{
+      width: 100vw;
+    }
+
+    .footlogo img{
+      display: block;
+      justify-content: center;
+      margin: 30px auto;
+    }
+
+    .footnav{
+      display: flex;
+      width: 100vw;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .footnav ul{
+      list-style-type: none;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .footnav li{
+      line-height: 45px;
+      margin-left: -7vw;
+    }
+
+    .footnav a{
+      text-decoration: none;
+      color: white;
+      font-family: 'Alata', sans-serif;
+      text-align: center;
+      
+    }
+
+    .footnav a:hover{
+      opacity: .7;
+      font-weight: bolder;
+    }
+
+    .footsocial ul{
+      list-style-type: none;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .footsocial li{
+      line-height: 45px;
+      display: inline-block;
+    }
+
+    .footsocial a:hover{
+      opacity: .7;
+    }
+
+
+    .footnav a{
+      text-decoration: none;
+      color: white;
+      font-family: 'Alata', sans-serif;
+      text-align: center;
+      
+    }
+    .footsocial img{
+      display: inline-block;
+      justify-content: center;
+      margin: 30px auto;
+      padding-right: 15px;
+    }
+
+    .foottrade{
+      color: grey;
+      font-family: 'Alata', sans-serif;
+      text-align: center;
+      margin-top: -40px;
+      margin-bottom: 40px;
+    }
+
+    .footlap{
+      display: none;
+    }
+  }
+
+  @media all and (min-width: 500px) and (max-width: 800px){
+    .interbody p{
+      font-family: 'Alata', sans-serif;
+      font-size: 15px;
+      min-width: 550px;
+      text-align: center;
+      padding: 0 30px;
+      line-height: 25px;
+    }
+    
+    .thirdcont {
+      margin-top: 30vh;
+    }
+
+    .create img{
+      max-width: 800px;
+      position: relative;
+      height: 200px;
+      margin: -40px 60px 0px 60px;
+      transform: scale(.9, .7);
+      
+    }
+
+  }
+
+
+  @media all and (min-width: 801px){
+    .firstcont{
+      min-width: 100vw;
+      min-height: 100vh;
+      background-image: url("images/desktop/image-hero.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-size: cover;
+      display: grid;
+      grid-template-areas: "icong icong icong icong navg navg" "immerseg";
+    }
+
+    .icon{
+      grid-area: icong;
+      margin-left: -38vw;
+      margin-top: -35vh;
+    }
+
+    #navi, #btn, #logo2{
+      display: none;
+    }
+
+    .navcont{
+      position: relative;
+      top: -15vh;
+      right: -50vw;
+    }
+
+    .navcont ul{
+      list-style-type: none;
+    }
+
+    .navcont li{
+      display: inline-block;
+    }
+    
+    .navcont a{
+      text-decoration: none;
+      text-transform: capitalize;
+      color: white;
+      font-family: 'Alata', sans-serif;
+      font-size: 15px;
+      padding-right: 50px;
+    }
+
+    .navcont a:hover::after{
+      content: "";
+      display: block;
+      width: 30px;
+      margin: 0 auto;
+      margin-bottom: -21.5px;
+      margin-left: 6px;
+      border-bottom: 3px solid white;
+    }
+    
+    .immerse{
+      grid-area: immerseg;
+      border: 5px solid white;
+      width: 40vw;
+      height: 40vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      top: -10vh;
+      left: -38vw;
+
+    }
+
+    .immerse p{
+      text-transform: uppercase;
+      font-family: 'Josefin Sans', sans-serif;
+      color: white;
+      text-align: left;
+      font-size: 4.4vw;
+      padding: 20px;
+      padding-left: 50px;
+      line-height: 55px;
+      width: 700px;
+
+    }
+
+    .seccont{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: end;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .mobpic1{
+      display: none;
+    }
+
+    .deskpic1{
+      max-width: 40vw;
+      margin: 100px 20px 100px 200px;
+    }
+
+    .interact{
+      width: 400px;
+      height: 250px;
+      margin-left: -125px;
+      margin-bottom: 100px;
+      background: white;
+      
+    }
+
+    .interhead{
+      margin-left: 80px;
+      margin-right: 40px;
+      margin-top: 60px;
+    }
+
+    .interbody{
+      margin-left: 80px;
+      margin-right: 40px;
+      margin-top: 20px;
+    }
+
+    .interhead p{
+      font-family: 'Josefin Sans', sans-serif;
+      text-transform: uppercase;
+      font-size: 30px;
+      width: 375px;
+      text-align: left;
+
+    }
+
+    .interbody p{
+      font-family: 'Alata', sans-serif;
+      font-size: 15px;
+      width: 420px;
+      text-align: left;
+      line-height: 25px;
+    }
+
+    .thirdcontlap{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 100vw;
+      justify-items: flex-start;
+      justify-content: center;
+      align-items: center;
+      margin-top: 5vh;
+
+    }
+
+    .firstrow, .secondrow, .thirdrow{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      justify-items: center;
+      
+    }
+
+    .firstrow{
+      width: 70vw;
+      justify-content: space-between;
+    }
+
+    .createhead{
+      text-transform: uppercase;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 32px;
+      margin-top: -50px;
+    }
+
+    .create{
+      position: relative;
+    }
+
+    .create img{
+      width: 300px;
+      height: 400px;
+      margin: -40px -40px 0px 5px;
+      transform: scale(.7, .8);
+      position: relative;
+      filter: brightness(0.8);
+    }
+
+    .create p{
+      text-transform: uppercase;
+      font-family: 'Josefin Sans', sans-serif;
+      color: white;
+      font-size: 25px;
+      position: absolute;
+      bottom: 60px;
+      left: 90px;
+      width: 150px;
+    }
+
+    .see{
+      max-width: 800px;
+      margin-right: -45px;
+    }
+
+    .see a{
+      text-decoration: none;
+      font-family: 'Alata', sans-serif;
+      text-transform: uppercase;
+      font-size: 15px;
+      border: 1px solid black;
+      padding: 8px 25px;
+      letter-spacing: 2px;
+      color: black;
+    }
+
+    .see a:hover{
+      background-color: black;
+      color: white;
+    }
+    
+    .thirdcontmob{
+      display: none;
+    }
+
+    .footlap{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      width: 100vw;
+      background: black;
+      margin: 0;
+    }
+
+    .footlogo{
+      width: 100vw;
+    }
+
+    .footlogo img{
+      display: block;
+      justify-content: flex-start;
+      margin: 30px;
+    }
+
+    .footnav{
+      display: flex;
+      width: 100vw;
+      justify-content: flex-start;
+      margin: 0;
+    }
+
+    .footnav ul{
+      list-style-type: none;
+      text-align: center;
+      margin: 10px 0 20px -20px;
+      width: 500px;
+    }
+
+    .footnav li{
+      line-height: 45px;
+      display: inline-block;
+    }
+
+    .footnav a{
+      text-decoration: none;
+      color: white;
+      font-family: 'Alata', sans-serif;
+      text-align: center;
+      padding-right: 30px;
+    }
+
+    .footnav a:hover::after{
+      content: "";
+      display: block;
+      width: 30px;
+      margin: 0 auto;
+      margin-bottom: -45px;
+      border-bottom: 3px solid white;
+
+    }
+
+    .footsocial ul{
+      list-style-type: none;
+      text-align: left;
+      margin: 40px 0;
+      width: 300px;
+    }
+
+    .footsocial li{
+      display: inline-block;
+      
+    }
+
+    .footsocial img{
+      display: inline-block;
+      justify-content: center;
+      padding-right: 15px;
+      
+    }
+
+    .footsocial a:hover::after{
+      content: "";
+      display: block;
+      width: 15px;
+      margin: 0 auto;
+      border-bottom: 3px solid white;
+      margin-bottom: -30px;
+      margin-left: 6px;
+
+    }
+
+    .foottrade{
+      color: grey;
+      font-family: 'Alata', sans-serif;
+      text-align: center;
+      margin-bottom: 40px;
+      width: 600px;
+    }
+
+    .footrow1, .footrow2{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      
+    
+    }
+    .footrow1{
+      justify-content: space-evenly;
+      width: 100vw;
+    }
+
+    .footrow2{
+      justify-content: space-evenly;
+      width: 100vw;
+    }
+
+    .footmob{
+      display: none;
+    }
+
+  
+
+  }
+
+
+
+    .attribution { 
+      font-size: 11px; 
+      text-align: center;
+      background-color: grey;
+      padding-bottom: 7px;
+      padding-top: 7px;
+      width: 100vw;
+       }
+    .attribution a { 
+      color: hsl(228, 45%, 44%);
+      }
+  </style>
+</head>
+<body>
+  <div class="firstcont">
+    <div class="icon"><img src="images/logo.svg" alt="logo"></div>
+    <div class="nav">
+      <a href="#navicon"><img src="images/icon-hamburger.svg" id="navi"></a>
+      <div class="navitems" id="navicon">
+        <a href="#" class="close"><img src="images/icon-close.svg" id="btn"></a>
+        <div class="navcont">
+          <ul>
+            <li><img src="images/logo.svg" alt="logo" id="logo2"></li><br><br><br><br><br><br><br><br><br><br>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Support</a></li> 
+          </ul>
+          
+        </div>
+      </div>
+      
+    </div>
+    <div class="immerse"><p>Immersive experiences that deliver</p></div>
+
+  </div>
+  <div class="seccont">
+    <img src="images/mobile/image-interactive.jpg" alt="interactive" class="mobpic1">
+    <img src="images/desktop/image-interactive.jpg" alt="interactive" class="deskpic1">
+    <div class="interact">
+      <div class="interhead">
+        <p>The leader in interactive VR</p> 
+      </div>
+      <div class="interbody">
+        <p>Founded in 2011, Loopstudios has been producing world-class virtual reality projects for some of the best companies around the globe. Our award-winning creations have transformed businesses through digital experiences that bind to their brand.</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="thirdcontmob">
+    <div class="createhead">
+      <p>Our creations</p>
+    </div>
+    <div class="create">
+      <img src="images/mobile/image-deep-earth.jpg" alt="deep earth">
+      <p>Deep earth</p>
+    </div>
+    <div class="create">
+      <img src="images/mobile/image-night-arcade.jpg" alt="night arcade">
+      <p>Night arcade</p>
+    </div>
+    <div class="create">
+      <img src="images/mobile/image-soccer-team.jpg" alt="soccer team">
+      <p>Soccer team VR</p>
+    </div>
+    <div class="create">
+      <img src="images/mobile/image-grid.jpg" alt="grid">
+      <p>The grid</p>
+    </div>
+    <div class="create">
+      <img src="images/mobile/image-from-above.jpg" alt="from above">
+      <p>From up above VR</p>
+    </div>
+    <div class="create">
+      <img src="images/mobile/image-pocket-borealis.jpg" alt="pocket borealis">
+      <p>Pocket borealis</p>
+    </div>
+    <div class="create">
+      <img src="images/mobile/image-curiosity.jpg" alt="curiosity">
+      <p>The curiosity</p>
+    </div>
+    <div class="create">
+      <img src="images/mobile/image-fisheye.jpg" alt="fisheye">
+      <p>Make it fisheye</p>
+    </div>
+    <div class="see">
+      <a href="#">See all</a>
+    </div>
+  </div>
+
+  <div class="thirdcontlap">
+    <div class="firstrow">
+      <div class="createhead">
+        <p>Our creations</p>
+      </div>
+      <div class="see">
+        <a href="#">See all</a>
+      </div>
+    </div>
+    
+    <div class="secondrow">
+      <div class="create">
+        <img src="images/desktop/image-deep-earth.jpg" alt="deep earth">
+        <p>Deep earth</p>
+      </div>
+      <div class="create">
+        <img src="images/desktop/image-night-arcade.jpg" alt="night arcade">
+        <p>Night arcade</p>
+      </div>
+      <div class="create">
+        <img src="images/desktop/image-soccer-team.jpg" alt="soccer team">
+        <p>Soccer team VR</p>
+      </div>
+      <div class="create">
+        <img src="images/desktop/image-grid.jpg" alt="grid">
+        <p>The grid</p>
+      </div>
+    </div>
+
+    <div class="thirdrow">
+      <div class="create">
+        <img src="images/desktop/image-from-above.jpg" alt="from above">
+        <p>From up above VR</p>
+      </div>
+      <div class="create">
+        <img src="images/desktop/image-pocket-borealis.jpg" alt="pocket borealis">
+        <p>Pocket borealis</p>
+      </div>
+      <div class="create">
+        <img src="images/desktop/image-curiosity.jpg" alt="curiosity">
+        <p>The curiosity</p>
+      </div>
+      <div class="create">
+        <img src="images/desktop/image-fisheye.jpg" alt="fisheye">
+        <p>Make it fisheye</p>
+      </div>
+    </div>
+    
+    
+    
+  </div>
+
+  <footer class="footmob">
+    <div class="footlogo">
+      <img src="images/logo.svg" alt="logo">
+    </div>
+    <div class="footnav">
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+    </div>
+    <div class="footsocial">
+      <ul>
+        <li><a href="#"><img src="images/icon-facebook.svg"></a></li>
+        <li><a href="#"><img src="images/icon-twitter.svg"></a></li>
+        <li><a href="#"><img src="images/icon-pinterest.svg"></a></li>
+        <li><a href="#"><img src="images/icon-instagram.svg"></a></li>
+      </ul>
+    </div>
+    <div class="foottrade">
+      <p>© 2021 Loopstudios. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <footer class="footlap">
+    <div class="footrow1">
+      <div class="footlogo">
+        <img src="images/logo.svg" alt="logo">
+      </div>
+      <div class="footsocial">
+        <ul>
+          <li><a href="#"><img src="images/icon-facebook.svg"></a></li>
+          <li><a href="#"><img src="images/icon-twitter.svg"></a></li>
+          <li><a href="#"><img src="images/icon-pinterest.svg"></a></li>
+          <li><a href="#"><img src="images/icon-instagram.svg"></a></li>
+        </ul>
+     </div>
+    </div>
+    
+    <div class="footrow2">
+      <div class="footnav">
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>
+    
+      <div class="foottrade">
+        <p>© 2021 Loopstudios. All rights reserved.</p>
+      </div>
+    </div>
+    
+  </footer>
+ 
+  
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Nnamdi Chikere</a>.
+  </div>
+</body>
+</html>
