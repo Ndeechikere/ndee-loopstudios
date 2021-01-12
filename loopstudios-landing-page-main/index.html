@@ -19,8 +19,12 @@
   html, body{
     margin: 0;
   }
+
+  body{
+    overflow-x: hidden;
+  }
   
-  @media all and (max-width: 800px) {
+  @media all and (max-width: 900px) {
     .firstcont{
         min-width: 100vw;
         min-height: 100vh;
@@ -117,8 +121,7 @@
 
     .seccont{
       display: flex;
-      flex-direction: column;
-      align items: flex-start; 
+      flex-direction: column; 
       justify-content: center;
       min-height: 100vh;
       width: 100vw;
@@ -326,7 +329,73 @@
     }
   }
 
-  @media all and (min-width: 500px) and (max-width: 800px){
+  @media all and (min-width: 500px) and (max-width: 900px){
+    .icon{
+      grid-area: icong;
+      margin-left: -10%;
+      margin-top: -40px;
+    }
+
+ 
+    .nav{
+      grid-area: navg;
+      position: relative;
+      top: 20px;
+      right: -10%;
+    }
+
+    #btn{
+      padding: 15px;
+    }
+
+    .navitems{
+      visibility: hidden;
+      display: table;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0);
+    }
+    
+    .navitems:target{
+      visibility: visible;
+    }
+
+    .navcont{
+      text-align: left;
+      margin-top: -126px;
+    }
+    
+    .navcont a{
+      text-decoration: none;
+      text-transform: uppercase;
+      color: white;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 30px;
+    }
+
+    .navcont li{
+      line-height: 45px;
+      display: inline-block;
+      padding-left: 20px;
+    }
+
+    .navcont a:hover{
+      border-bottom: 3px groove white;
+    }
+
+    #logo2{
+      margin-bottom: -80px;
+    }
+
+    .close{
+      position: absolute;
+      top: 25px;
+      right: 20px;
+    }
+
     .interbody p{
       font-family: 'Alata', sans-serif;
       font-size: 15px;
@@ -352,7 +421,7 @@
   }
 
 
-  @media all and (min-width: 801px){
+  @media all and (min-width: 901px){
     .firstcont{
       min-width: 100vw;
       min-height: 100vh;
