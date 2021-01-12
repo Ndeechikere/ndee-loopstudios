@@ -19,12 +19,13 @@
   html, body{
     margin: 0;
   }
-
-  body{
-    overflow-x: hidden;
-  }
   
   @media all and (max-width: 900px) {
+    body{
+    overflow-x: hidden;
+    width: 100%;
+    }
+
     .firstcont{
         min-width: 100vw;
         min-height: 100vh;
@@ -330,6 +331,12 @@
   }
 
   @media all and (min-width: 500px) and (max-width: 900px){
+
+    body{
+    overflow-x: hidden;
+    width: 100%;
+    }
+    
     .icon{
       grid-area: icong;
       margin-left: -10%;
